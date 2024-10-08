@@ -31,9 +31,9 @@ public class Review05 {
 
             // 5, 6. Select文の実行と結果を格納／代入
             System.out.println("検索ワードを入力してください>");
-            String input = keyIn();
+            int input = keyInNum();
 
-            pstmt.setString(1,input);
+            pstmt.setInt(1,input);
 
             rs=pstmt.executeQuery();
 
@@ -83,16 +83,25 @@ public class Review05 {
         }
     }
     }
-            private static String keyIn() {
-                   String line=null;
-            try {
-                BufferedReader key = new BufferedReader(new InputStreamReader(System.in));
-                line = key.readLine();
-             }catch(IOException e) {
-              }
-             return line;
-       }
+    private static String keyIn() {
+        String line=null;
+        try {
+            BufferedReader key = new BufferedReader(new InputStreamReader(System.in));
+            line = key.readLine();
+        }catch(IOException e) {
 
+        }
+        return line;
+    }
+
+    private static int keyInNum() {
+        int result=0;
+        try {
+            result =Integer.parseInt(keyIn());
+        }catch(NumberFormatException e) {
+        }
+        return result;
+    }
     }
 
 
